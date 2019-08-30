@@ -111,6 +111,20 @@ exports.employee_login = (req, res, next) => {
     });
 };
 
+exports.getAll = (req, res, next) => {
+  Employee.find()
+    .exec()
+    .then(employees => {
+      res.status(200).json({ success: true, response: employees });
+    })
+    .catch(err => {
+      res.status(200).json({
+        success: false,
+        response: err
+      });
+    });
+};
+
 exports.checkPrize = (req, res, next) => {
   Prize.find({
     draw1: req.query.draw1,
