@@ -37,7 +37,8 @@ app.get("/", (req, res, next) => {
       "<li><a href='/post/test'>Create Post</a>" +
       "<li><a href='/employee/bulkRegister'>Bulk Register</a>" +
       "<li><a href='/employee/getAll'>Get All</a>" +
-      "<li><a href='/employee/toggleGift?eid=785452'>Toggle Gift</a>"
+      "<li><a href='/employee/toggleGift?eid=785452'>Toggle Gift</a>" +
+      "<li><a href='/employee/toggleCheckin?eid=785452'>Toggle Checkin</a>"
   );
 });
 app.use("/employee", employeeRoutes);
