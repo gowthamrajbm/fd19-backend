@@ -131,10 +131,10 @@ exports.employee_login = (req, res, next) => {
         if (employee[0].logged_in) {
           return res.status(200).json({
             success: false,
-            response: "Employee Checked-in Already!"
+            response: "You're Checked-in Already!"
           });
         }
-        Employee.updateOne({ eid: eid }, { $set: { gift: true } })
+        Employee.updateOne({ eid: eid }, { $set: { logged_in: true } })
           .exec()
           .then(() => {
             return res.status(201).json({
