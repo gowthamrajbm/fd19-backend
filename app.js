@@ -32,7 +32,12 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res, next) => {
   res.send(
-    "<h1>Something H1</h1><li><a href='/employee/login?a=10'>Employee</a><li><a href='/post/test'>Create Post</a><li><a href='/employee/bulkRegister'>Bulk Register</a><li><a href='/employee/getAll'>Get All</a>"
+    "<h1>Something H1</h1>" +
+      "<li><a href='/employee/login?a=10'>Employee</a>" +
+      "<li><a href='/post/test'>Create Post</a>" +
+      "<li><a href='/employee/bulkRegister'>Bulk Register</a>" +
+      "<li><a href='/employee/getAll'>Get All</a>" +
+      "<li><a href='/employee/toggleGift?eid=785452'>Toggle Gift</a>"
   );
 });
 app.use("/employee", employeeRoutes);

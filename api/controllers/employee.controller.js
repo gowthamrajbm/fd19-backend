@@ -70,6 +70,53 @@ exports.setGift = (req, res, next) => {
     });
 };
 
+exports.toggleGift = (req, res, next) => {
+  const employeeId = req.query.eid;
+  Employee.findOne({ eid: employeeId })
+    .then(emp => {
+      Employee.updateOne({ eid: employeeId }, { $set: { gift: !emp.gift } })
+        .exec()
+        .then(() => {
+          return res.status(201).json({
+            success: true,
+            response: "Gift toggled"
+          });
+        })
+        .catch(err => {
+          return res.status(200).json({
+            success: false,
+            response: err
+          });
+        });
+    })
+    .catch(err => {});
+};
+
+exports.toggleCheckin = (req, res, next) => {
+  const employeeId = req.query.eid;
+  Employee.findOne({ eid: employeeId })
+    .then(emp => {
+      Employee.updateOne(
+        { eid: employeeId },
+        { $set: { logged_in: !emp.logged_in } }
+      )
+        .exec()
+        .then(() => {
+          return res.status(201).json({
+            success: true,
+            response: "Checkin toggled"
+          });
+        })
+        .catch(err => {
+          return res.status(200).json({
+            success: false,
+            response: err
+          });
+        });
+    })
+    .catch(err => {});
+};
+
 exports.employee_login = (req, res, next) => {
   const eid = req.query.eid;
   Employee.find({ eid: eid })
