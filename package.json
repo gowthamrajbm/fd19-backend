@@ -26,7 +26,7 @@
     "https": "^1.0.0",
     "jsonwebtoken": "8.5.1",
     "moment": "^2.24.0",
-    "mongoose": "5.5.11",
+    "mongoose": "5.7.8",
     "morgan": "1.9.1",
     "node-cron": "2.0.3",
     "nodemailer": "6.2.1",
